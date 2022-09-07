@@ -4,21 +4,22 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        string messeng;
-        bool isExit = true;
         int arrayLength = 0;
         int[] array = new int[arrayLength];
+        string messeng;
+        string exit;
+        string sum;
+        bool isActiveCycle = true;
 
-        while (isExit)
+        while (isActiveCycle)
         {
-            Console.WriteLine("Введите число или команду sum / exit");
+            Console.WriteLine($"Введите число или команду sum / exit");
             messeng = Console.ReadLine();
 
             if (messeng != "exit" && messeng != "sum")
             {
                 int numbers = Convert.ToInt32(messeng);
                 int[] arrayTemp = new int[array.Length + 1];
-                array = new int[array.Length];
 
                 for (int i = 0; i < array.Length; i++)
                 {
@@ -40,7 +41,7 @@ internal class Program
             }
             else if (messeng == "exit")
             {
-                isExit = false;
+                isActiveCycle = false;
             }
         }
     }
