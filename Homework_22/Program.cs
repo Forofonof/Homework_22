@@ -6,19 +6,19 @@ internal class Program
     {
         int arrayLength = 0;
         int[] array = new int[arrayLength];
-        string messeng;
-        string exit;
-        string sum;
+        string userMesseng;
+        const string exit = "exit";
+        const string sum = "sum";
         bool isActiveCycle = true;
 
         while (isActiveCycle)
         {
-            Console.WriteLine($"Введите число или команду sum / exit");
-            messeng = Console.ReadLine();
+            Console.WriteLine($"Введите число или команду {sum} / {exit}");
+            userMesseng = Console.ReadLine();
 
-            if (messeng != "exit" && messeng != "sum")
+            if (userMesseng.ToLower() != $"{exit}" && userMesseng.ToLower() != $"{sum}")
             {
-                int numbers = Convert.ToInt32(messeng);
+                int numbers = Convert.ToInt32(userMesseng);
                 int[] arrayTemp = new int[array.Length + 1];
 
                 for (int i = 0; i < array.Length; i++)
@@ -27,9 +27,8 @@ internal class Program
                 }
                 arrayTemp[arrayTemp.Length - 1] = numbers;
                 array = arrayTemp;
-                Console.WriteLine(numbers);
             }
-            else if (messeng == "sum")
+            else if (userMesseng.ToLower() == $"{sum}")
             {
                 int arraySum = 0;
 
@@ -39,7 +38,7 @@ internal class Program
                 }
                 Console.WriteLine($"Сумма массива: {arraySum}");
             }
-            else if (messeng == "exit")
+            else if (userMesseng.ToLower() == $"{exit}")
             {
                 isActiveCycle = false;
             }
